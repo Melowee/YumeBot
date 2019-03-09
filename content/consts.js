@@ -1,5 +1,5 @@
 const consts = {
-    token: 'NDM4MzExMzE0NjYyODgzMzI5.Df6ICw.0AuwIDwB_tjvVs6U_zG6IiD6S6Q',
+    token: 'YTA6XSV_INf1nwYsMRa1HIbCx3NB5Sxv',
 
     connards: {
         allan: '259772195146825740',
