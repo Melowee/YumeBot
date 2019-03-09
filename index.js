@@ -5,8 +5,6 @@ const client = new Client();
 const commands = require('./content/modules');
 const consts = require('./content/consts');
 
-const menMEN = "https://www.youtube.com/watch?v=wd9PVqYelhI";
-
 let queue = [];
 let dispatcher;
 
@@ -96,11 +94,10 @@ client.on('message', async message => {
 
   if(command === "men"){
 	 join(message);
-	 queue.push(menMEN);
+	 queue.push(consts.menSoundURL);
 	 if(!dispatcher){
 		play(message.guild.voiceConnection, message);
 	}
-   const attachment = new Attachment('yume_contents/mentransparent.png');
    const embed = new RichEmbed()
       .setTitle('Meeeeeenn')
       .setColor(0xFF0000)
