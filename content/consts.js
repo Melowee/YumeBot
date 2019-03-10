@@ -1,6 +1,4 @@
 const consts = {
-    token: 'YTA6XSV_INf1nwYsMRa1HIbCx3NB5Sxv',
-
     connards: {
         allan: '259772195146825740',
         romain: '259416082928893956',
