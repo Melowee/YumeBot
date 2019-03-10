@@ -1,3 +1,5 @@
+const config = require('./config.json');
+
 const { Client, RichEmbed, Attachment } = require('discord.js');
 const YTDL = require('ytdl-core');
 const client = new Client();
@@ -157,4 +159,4 @@ client.on('message', async message => {
 
 });
 
-client.login(consts.token);
+client.login(config.token);
