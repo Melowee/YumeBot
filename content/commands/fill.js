@@ -1,4 +1,4 @@
-function fill(message, args){
+function fill(message, args, vars){
     if (args[1]){
         args.shift();
         let n = args.shift();

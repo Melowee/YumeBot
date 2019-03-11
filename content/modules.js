@@ -4,7 +4,17 @@ const commands = {
     nuke: require('./commands/nuke'),
     say: require('./commands/say'),
     allan: require('./commands/allan'),
-    fill: require('./commands/fill')
+    fill: require('./commands/fill'),
+    chiante: require('./commands/chiante'),
+    join: require('./commands/join'),
+    leave: require('./commands/leave')
 }
 
-module.exports = commands;
+const events = {
+    reponseCasseCouilles: require('./events/reponseCasseCouilles')
+}
+
+module.exports = {
+    commands: commands,
+    events: events
+}

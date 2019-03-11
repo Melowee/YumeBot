@@ -1,4 +1,4 @@
-function nuke(message, args){
+function nuke(message, args, vars){
     if(args[1]){
         message.channel.fetchMessages({ limit : args[1] }).then((messages) => {
             message.channel.bulkDelete(messages).catch('error');

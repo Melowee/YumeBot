@@ -1,6 +1,6 @@
 const consts = require('../consts');
 
-function poke(message, args){
+function poke(message, args, vars){
     if (args.length >= 3){
         args.shift();
         let connard = args.shift();

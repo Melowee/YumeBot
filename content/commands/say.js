@@ -1,5 +1,5 @@
-function say(message, args){
-    if (args[2]){
+function say(message, args, vars){
+    if (args[1]){
         args.shift();
         let sayMessage = args.join(' ');
 

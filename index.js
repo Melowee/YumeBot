@@ -1,29 +1,17 @@
 const config = require('./config.json');
 
-const { Client, RichEmbed, Attachment } = require('discord.js');
+const { Client, RichEmbed } = require('discord.js');
 const YTDL = require('ytdl-core');
 const client = new Client();
 
-const commands = require('./content/modules');
+const botModule = require('./content/modules');
 const consts = require('./content/consts');
 
 let queue = [];
 let dispatcher;
 
-let chiante = false;
-
-function join(message){
-	const channel = message.member.voiceChannel;
-
-  	if(message.member.voiceChannel){
-  		if(!message.guild.voiceConnection){
-		    channel.join()
-		    .then(connection => message.reply("Jui là :)"))
-		    .catch(console.error);
-		}
-	}else{
-		message.reply("Jui pas co gros con");
-	}
+let vars = {
+	chiante: false
 }
 
 function play(connection, message){
@@ -40,50 +28,19 @@ function play(connection, message){
 	})
 }
 
-function reponseCasseCouilles(message){
-
-	switch (message.author.id){
-		case connards.allan:
-			message.reply("Regarde Mob Psycho");
-			break;
-		case connards.fabien:
-			message.reply("Tiens un monocycle");
-			break;
-		case connards.clement:
-			message.reply("Tg");
-			break;
-		case connards.peru:
-			message.reply("Regarde Hunter x Hunter");
-			break;
-		case connards.romain:
-			message.reply("Regardez un gros con qui parle");
-			break;
-		case connards.sebastien:
-			message.reply("Je sens qu'il a du pif celui là !");
-		default:
-			message.reply("Inconnu au bataillon celui-là");
-	}
-}
-
 client.on('ready', () => {
   console.log(`Bot has started, with ${client.users.size} users, in ${client.channels.size} channels of ${client.guilds.size} guilds.`);
   client.user.setActivity('se faire développer');
 });
 
+
 client.on('message', async message => {
   if(message.author.bot) return;
 
-  if(chiante){
-  	reponseCasseCouilles(message);
-  }
+	botModule.events.reponseCasseCouilles(message, vars);
 
   if(message.content.indexOf('yume') !== 0) return;
 
-/*
-  const args = message.content.slice(4).trim().split(/ +/g);
-  console.log(args);
-  const command = args.shift().toLowerCase();
-*/
 	message.delete().catch(O_o=>{});
 
 
@@ -107,20 +64,6 @@ client.on('message', async message => {
     message.channel.send(embed);
   }
 
-  if (command === "join"){
-  	join(message);
-  }
-
-  if (command === "leave"){
-  	if(message.guild.voiceConnection){
-  		message.guild.voiceConnection.disconnect();
-  		message.reply("Jui pu là :(");
-  	}else{
-  		message.reply("Jui pas co gros con");
-  	}
-
-  }
-
   if (command === "play"){
   		join(message);
   		connection = message.guild.voiceConnection;
@@ -138,21 +81,8 @@ client.on('message', async message => {
   	}
   }
 
-  if (command === "chiante"){
-  	if (chiante){
-  		chiante = false;
-  		message.reply("Mode chiante désactivé.");
-
-  	}else{
-  		chiante = true;
-  		message.reply("Mode chiante activé !");
-  	}
-  }
-
-
-	if (commands[command]){
-		commands[command](message, args);
-		message.reply('je connais');
+	if (botModule.commands[command]){
+		botModule.commands[command](message, args, vars);
 	}else{
 		message.reply('je connais pas');
 	}

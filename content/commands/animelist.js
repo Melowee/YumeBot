@@ -1,6 +1,6 @@
 const HTTP = require('follow-redirects').http;
 
-function animelist(message, args){
+function animelist(message, args, vars){
   if(args[1]){
     const options = {
       host: 'anime-gate.net',
