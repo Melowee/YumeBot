@@ -83,7 +83,10 @@ client.on('message', async message => {
 	
 	if(botModule.commands[command]){
 		botModule.commands[command].run(message, args, vars);
-	}else{
+	}else if(command === 'help'){
+		botModule.specialCommands.help.run(message, args, botModule.commands);
+	}
+	else{
 		message.reply('jsp');
 	}
 /*

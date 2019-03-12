@@ -5,7 +5,7 @@ class SayCommand extends Command{
         super({
             name: 'say',
             group: 'util',
-            description: 'Ecris le message précissé par le commandiste'
+            description: 'Ecris le message précisé par le commandiste'
         });
     }
 

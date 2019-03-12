@@ -14,7 +14,12 @@ const events = {
     reponseCasseCouilles: require('./events/reponseCasseCouilles')
 }
 
+const specialCommands = {
+    help: new (require('./commands/help'))()
+}
+
 module.exports = {
     commands: commands,
-    events: events
+    events: events,
+    specialCommands: specialCommands
 }

@@ -4,7 +4,7 @@ class LeaveCommand extends Command{
     constructor(){
         super({
             name: 'leave',
-            group: 'voice',
+            group: 'vocal',
             description: 'Quitte le salon vocal si il est connecté quelque part (pas con hein)'
         });
     }

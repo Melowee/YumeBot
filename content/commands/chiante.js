@@ -4,7 +4,7 @@ class ChianteCommand extends Command{
     constructor(){
         super({
             name: 'chiante',
-            group:' troll',
+            group: 'troll',
             description: 'Le bot devient chiante et dit de la merde dès que quelqu\'un écrit un truc'
         });
     }
