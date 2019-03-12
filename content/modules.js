@@ -1,13 +1,13 @@
 const commands = {
-    animelist: require('./commands/animelist'),
-    poke: require('./commands/poke'),
-    nuke: require('./commands/nuke'),
-    say: require('./commands/say'),
-    allan: require('./commands/allan'),
-    fill: require('./commands/fill'),
-    chiante: require('./commands/chiante'),
-    join: require('./commands/join'),
-    leave: require('./commands/leave')
+    animelist: new (require('./commands/animelist'))(),
+    poke: new (require('./commands/poke'))(),
+    nuke: new (require('./commands/nuke'))(),
+    say: new (require('./commands/say'))(),
+    allan: new (require('./commands/allan'))(),
+    fill: new (require('./commands/fill'))(),
+    chiante: new (require('./commands/chiante'))(),
+    join: new (require('./commands/join'))(),
+    leave: new (require('./commands/leave'))()
 }
 
 const events = {

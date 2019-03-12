@@ -79,14 +79,20 @@ client.on('message', async message => {
   	if (dispatcher){
   		dispatcher.end();
   	}
-  }
-
+	}
+	
+	if(botModule.commands[command]){
+		botModule.commands[command].run(message, args, vars);
+	}else{
+		message.reply('jsp');
+	}
+/*
 	if (botModule.commands[command]){
 		botModule.commands[command](message, args, vars);
 	}else{
 		message.reply('je connais pas');
 	}
-
+*/
 });
 
 client.login(config.token);
